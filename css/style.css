@@ -1,0 +1,59 @@
+/* Reset & base setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #fafafa;
+  color: #222;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.nav-links a {
+  margin: 0 16px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #1f2a5a;
+}
+
+.nav-actions button {
+  margin-left: 12px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Buttons */
+.outline-btn {
+  background: transparent;
+  border: 1px solid #1f2a5a;
+  color: #1f2a5a;
+}
+
+.primary-btn {
+  background-color: #1f2a5a;
+  border: none;
+  color: white;
+}
