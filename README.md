@@ -46,3 +46,4 @@ This repo includes a Node.js + Express backend, a React + Vite + Tailwind fronte
 - The project name has been updated to `TailorIt`.
 - The `backend/.env` database URL uses `tailorit` by default.
 - Do not commit `backend/.env` to source control.
+- Frontend GitHub Pages deployment is configured to publish from `frontend/dist` to the `gh-pages` branch.
