@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.button-primary {
+  @apply bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-700;
+}
