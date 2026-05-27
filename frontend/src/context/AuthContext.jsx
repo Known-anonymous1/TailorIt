@@ -1,19 +1,47 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+import api from '../services/api.js';
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const savedUser = localStorage.getItem('tailorit_user');
     const savedToken = localStorage.getItem('tailorit_token');
-    if (savedUser && savedToken) {
-      setUser(JSON.parse(savedUser));
+
+    if (savedToken) {
       setToken(savedToken);
+      if (savedUser) {
+        setUser(JSON.parse(savedUser));
+      }
+
+      api
+        .get('/auth/me')
+        .then((response) => {
+          setUser(response.data.user);
+          localStorage.setItem('tailorit_user', JSON.stringify(response.data.user));
+        })
+        .catch(() => {
+          logout();
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else {
+      setLoading(false);
     }
   }, []);
+
+  useEffect(() => {
+    if (token) {
+      api.defaults.headers.common.Authorization = `Bearer ${token}`;
+    } else {
+      delete api.defaults.headers.common.Authorization;
+    }
+  }, [token]);
 
   const login = (userData, accessToken) => {
     setUser(userData);
@@ -30,7 +58,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, login, logout }}>
+    <AuthContext.Provider value={{ user, token, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

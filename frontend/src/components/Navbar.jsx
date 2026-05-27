@@ -11,8 +11,12 @@ export default function Navbar() {
         <nav className="flex flex-wrap items-center gap-4 text-sm text-slate-600">
           <Link to="/" className="transition hover:text-slate-900">Home</Link>
           <Link to="/search" className="transition hover:text-slate-900">Search</Link>
-          <Link to="/tailor-dashboard" className="transition hover:text-slate-900">Tailor</Link>
-          <Link to="/customer" className="transition hover:text-slate-900">Customer</Link>
+          {user && user.role === 'tailor' && (
+            <Link to="/tailor-dashboard" className="transition hover:text-slate-900">Tailor</Link>
+          )}
+          {user && user.role === 'customer' && (
+            <Link to="/customer" className="transition hover:text-slate-900">Customer</Link>
+          )}
         </nav>
         <div className="flex items-center gap-3">
           {user ? (
