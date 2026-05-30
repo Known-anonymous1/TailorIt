@@ -47,3 +47,6 @@ This repo includes a Node.js + Express backend, a React + Vite + Tailwind fronte
 - The `backend/.env` database URL uses `tailorit` by default.
 - Do not commit `backend/.env` to source control.
 - Frontend GitHub Pages deployment is configured to publish from `frontend/dist` to the `gh-pages` branch.
+- The frontend uses hash-based routing for GitHub Pages compatibility.
+- Expected GitHub Pages preview URL: `https://known-anonymous1.github.io/TailorIt/`
+- Local frontend development can use `frontend/.env` with `VITE_API_URL=http://localhost:5000/api`.

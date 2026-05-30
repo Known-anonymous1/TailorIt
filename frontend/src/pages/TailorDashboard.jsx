@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api.js';
 
 export default function TailorDashboard() {
@@ -22,6 +23,8 @@ export default function TailorDashboard() {
     loadSummary();
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <section className="space-y-8">
       <div className="card-surface">
@@ -30,7 +33,7 @@ export default function TailorDashboard() {
             <p className="text-sm uppercase tracking-[0.3em] text-accent-teal">Tailor dashboard</p>
             <h1 className="mt-3 text-3xl font-semibold text-slate-900">Manage your studio</h1>
           </div>
-          <button onClick={() => window.location.assign('/search')} className="button-primary">Browse customers</button>
+          <button onClick={() => navigate('/search')} className="button-primary">Browse customers</button>
         </div>
       </div>
       {error && <div className="rounded-[2rem] border border-rose-200 bg-rose-50 p-6 text-rose-700">{error}</div>}

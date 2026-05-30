@@ -43,22 +43,6 @@ router.get('/:tailorId', authenticateToken, async (req, res) => {
 
 router.post('/', authenticateToken, async (req, res) => {
   try {
-    const result = await pool.query(
-      `SELECT i.id, i.message, i.created_at, t.business_name AS tailor_name
-       FROM inquiries i
-       LEFT JOIN tailors t ON t.id = i.tailor_id
-       WHERE i.user_id = $1
-       ORDER BY i.created_at DESC`,
-      [req.user.id]
-    );
-    res.json({ inquiries: result.rows });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-router.post('/', authenticateToken, async (req, res) => {
-  try {
     const { tailorId, message } = req.body;
     if (!tailorId || !message) {
       return res.status(400).json({ message: 'Tailor ID and message are required' });

@@ -14,6 +14,7 @@ export function AuthProvider({ children }) {
 
     if (savedToken) {
       setToken(savedToken);
+      api.defaults.headers.common.Authorization = `Bearer ${savedToken}`;
       if (savedUser) {
         setUser(JSON.parse(savedUser));
       }

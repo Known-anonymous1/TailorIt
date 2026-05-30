@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import SearchBar from '../components/SearchBar.jsx';
 import TailorCard from '../components/TailorCard.jsx';
 import MapView from '../components/MapView.jsx';
@@ -16,8 +17,8 @@ export default function Home() {
             <h1 className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl">Discover local tailors, browse portfolios, and book custom tailoring instantly.</h1>
             <p className="max-w-xl text-lg leading-8 text-brand-100/90">TailorIt blends modern search, rich tailor profiles, and an elegant marketplace experience built for customers and tailors alike.</p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <a href="/search" className="button-primary">Search Tailors</a>
-              <a href="/register" className="rounded-2xl border border-white/25 bg-white/10 px-6 py-3 text-sm text-white transition hover:bg-white/20">Join as a tailor</a>
+              <Link to="/search" className="button-primary">Search Tailors</Link>
+              <Link to="/register" className="rounded-2xl border border-white/25 bg-white/10 px-6 py-3 text-sm text-white transition hover:bg-white/20">Join as a tailor</Link>
             </div>
           </div>
           <div className="grid gap-5 sm:max-w-md">

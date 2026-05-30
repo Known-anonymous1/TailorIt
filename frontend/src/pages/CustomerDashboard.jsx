@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api.js';
 
 export default function CustomerDashboard() {
@@ -22,6 +23,8 @@ export default function CustomerDashboard() {
     loadSummary();
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <section className="space-y-8">
       <div className="card-surface">
@@ -30,7 +33,7 @@ export default function CustomerDashboard() {
             <p className="text-sm uppercase tracking-[0.3em] text-brand-600">Customer dashboard</p>
             <h1 className="mt-3 text-3xl font-semibold text-slate-900">Your recent activity</h1>
           </div>
-          <button onClick={() => window.location.assign('/search')} className="button-primary">Browse tailors</button>
+          <button onClick={() => navigate('/search')} className="button-primary">Browse tailors</button>
         </div>
       </div>
       {error && <div className="rounded-[2rem] border border-rose-200 bg-rose-50 p-6 text-rose-700">{error}</div>}

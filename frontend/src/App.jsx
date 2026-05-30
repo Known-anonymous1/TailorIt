@@ -7,6 +7,7 @@ import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import CustomerDashboard from './pages/CustomerDashboard.jsx';
 import TailorDashboard from './pages/TailorDashboard.jsx';
+import NotFound from './pages/NotFound.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/customer" element={<ProtectedRoute><CustomerDashboard /></ProtectedRoute>} />
           <Route path="/tailor-dashboard" element={<ProtectedRoute><TailorDashboard /></ProtectedRoute>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </div>
